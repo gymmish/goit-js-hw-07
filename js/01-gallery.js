@@ -31,14 +31,15 @@ function onGalleryContainerClick(e) {
   if (e.target === e.currentTarget) {
     return;
   }
-  modal.show();
-}
 
-const modal = basicLightbox.create(
-  `<div class="modal">
+  const modalImg = e.target.dataset.source;
+  const modal = basicLightbox.create(
+    `<div class="modal">
    <img
       class="gallery__image"
-      src = "data-source"
+      src = "${modalImg}"
     />
     </div>`
-);
+  );
+  modal.show();
+}
